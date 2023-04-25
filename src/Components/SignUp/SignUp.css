@@ -1,0 +1,17 @@
+.container{
+    padding-top: 80px;
+
+}
+
+.signupform{
+    margin-top: 60px;
+}
+
+img{
+    margin-left: -200px;
+}
+
+.error{
+    display: flex;
+    padding: 5px;
+}
