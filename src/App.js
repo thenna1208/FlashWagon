@@ -8,6 +8,8 @@ import Electronics from './Components/ProductCard/Electronics';
 import Jewelery from './Components/ProductCard/Jewelery';
 import MensClothing from './Components/ProductCard/MensClothing';
 import WomensClothing from './Components/ProductCard/WomensClothing';
+import Cart from './Components/Cart/Cart';
+import IndividualCard from './Components/IndividualCard/IndividualCard';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path='/jewelery' element={<Jewelery/>} ></Route>
           <Route path='/mensclothing' element={<MensClothing/>} ></Route>
           <Route path='/womensclothing' element={<WomensClothing/>} ></Route>
+          <Route path='/cart' element={<Cart/>} ></Route>
+          <Route path='/individualcard' element={<IndividualCard/>}></Route>
 
         </Routes>
       </BrowserRouter>
