@@ -23,7 +23,7 @@ function Electronics() {
         {
           products && products.map((product) => (
             <ProductCard
-              // notifyAboutCartChanges={getCartItemsCount}
+              
               key={product.id}
               item={product}
             />
