@@ -2,12 +2,31 @@
 import React from 'react';
 import './ProductCard.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, removeItem, toggleIsInCart } from '../../Store/slices/cartSlices';
 
 function ProductCard({ item }) {
 
 
   const rate = Math.floor(item.rating.rate);
   const ratings = Array(rate).fill(0);
+  const dispatch = useDispatch();
+
+  const isInCart = useSelector((state) =>
+    state.cartItems.some((items) => items.id === item.id)
+  );
+
+  const handleAddToCartClick = () => {
+    if (isInCart) {
+      dispatch(removeItem(item.id));
+      dispatch(toggleIsInCart()); 
+    } else {
+      dispatch(addItem({ item }));
+      dispatch(toggleIsInCart());
+    }
+  };
+
+
 
   return (
     <div className="card">
@@ -42,8 +61,8 @@ function ProductCard({ item }) {
         <hr />
         <div className="card-bottom">
 
-          <button className='btn btn-info'>
-              Add to cart
+          <button onClick={handleAddToCartClick} className={isInCart ? 'btn btn-danger' : 'btn btn-info'}>
+          {isInCart ? "Remove from cart" : "Add to cart"} 
           </button>
         </div>
       </div>
