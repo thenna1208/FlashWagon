@@ -53,18 +53,11 @@ button{
     width: 100%;
 }
 
-.wishlist-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    left: 110px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.wish {
+   width: 60px;
   }
   
-  .wishlist-btn:hover {
+  .wish:hover {
     transform: scale(1.2);
   }
 

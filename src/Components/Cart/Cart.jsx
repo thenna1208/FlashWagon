@@ -5,7 +5,7 @@ import ProductCard from '../ProductCard/ProductCard'
 import './Cart.css'
 
 function Cart() {
-  const cartItems = useSelector((state) => state.cartItems)
+  const cartItems = useSelector((state) => state.cart.cartItems)
   console.log(cartItems);
 
   const subtotal = Math.floor(cartItems.reduce((total, item) => total + item.price, 0))
@@ -16,7 +16,7 @@ function Cart() {
       <Header />
 
       <div className='body'>
-
+        <div className = 'removewish'>
         <div className='product-container '>
           {
             cartItems && cartItems.map((product) => (
@@ -27,6 +27,8 @@ function Cart() {
             ))
           }
         </div>
+        </div>
+       
 
         <div className="card summary" >
 

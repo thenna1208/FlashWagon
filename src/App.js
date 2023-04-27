@@ -26,7 +26,7 @@ function App() {
           <Route path='/womensclothing' element={<WomensClothing/>} ></Route>
           <Route path='/cart' element={<Cart/>} ></Route>
           <Route path='/individualcard' element={<IndividualCard/>}></Route>
-
+          
         </Routes>
       </BrowserRouter>
      
