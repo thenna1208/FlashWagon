@@ -42,6 +42,8 @@ function ProductCard({ item }) {
 
 
 
+
+
   return (
     <div className="card">
       <Link to={`/individualcard?id=${item.id}`}>
@@ -82,12 +84,14 @@ function ProductCard({ item }) {
 </svg>
           </button>
             </div>
+
               <div>
               <button onClick={handleAddToCartClick} className={isInCart ? 'btn cart-btn btn-danger' : 'btn cart-btn btn-info'}>
           {isInCart ? "Remove from cart" : "Add to cart"} 
           </button>
               </div>
 
+           
          
 
          

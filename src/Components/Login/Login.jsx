@@ -3,6 +3,7 @@ import './Login.css'
 import Header from '../Header/Header'
 import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +27,8 @@ const loginSchema = Yup.object().shape({
 
 function Login() {
 
+    const navigate = useNavigate()
+
     const [initialFormValues, setInitialFormValues] = useState({
 
         loginemail: '',
@@ -43,6 +46,7 @@ function Login() {
             loginpassword: ""
 
         });
+        navigate('/')
     }
 
     return (
