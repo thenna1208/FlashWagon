@@ -7,7 +7,7 @@ import './Home.css'
 function Home() {
 
   const [products, setProducts] = useState([]);
-  
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -29,7 +29,6 @@ function Home() {
         {
           products && products.map((product) => (
             <ProductCard
-              // notifyAboutCartChanges={getCartItemsCount}
               key={product.id}
               item={product}
             />
@@ -37,8 +36,6 @@ function Home() {
         }
 
       </div>
-
-      
 
     </div>
 
