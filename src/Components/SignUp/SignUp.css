@@ -14,12 +14,13 @@
   img {
     max-width: 100%;
     height: auto;
-    margin-left: -200px;
+    margin-left: -100px;
   }
   
   .error {
     display: flex;
     padding: 5px;
+    color: red;
   }
   
   .btn-link {

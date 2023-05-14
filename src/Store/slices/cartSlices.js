@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const CART_KEY = "cartItems";
 const WISHLIST_KEY = "wishlistItems";
 
+
 const getCartItemsFromLocalStorage = () => {
   const cartItems = localStorage.getItem(CART_KEY);
   if (cartItems) {
@@ -12,6 +13,7 @@ const getCartItemsFromLocalStorage = () => {
   }
   return [];
 };
+
 
 const getWishlistItemsFromLocalStorage = () => {
     const wishlistItems = localStorage.getItem(WISHLIST_KEY);
@@ -21,13 +23,19 @@ const getWishlistItemsFromLocalStorage = () => {
     return [];
   };
 
+
+
 const saveCartItemsToLocalStorage = (cartItems) => {
   localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
 };
 
+
+
 const saveWishlistItemsToLocalStorage = (wishlistItems) => {
     localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlistItems));
   };
+
+
 
 const counterSlice = createSlice({
   name: "counterSlice",
@@ -56,6 +64,8 @@ const counterSlice = createSlice({
       }
   },
 });
+
+
 
 const wishlistSlice = createSlice({
     name: "wishlistSlice",

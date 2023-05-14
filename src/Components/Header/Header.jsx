@@ -49,7 +49,7 @@ function Header() {
                             </svg> &nbsp;
                                <a className='cart' href='/cart'> Cart </a>  &nbsp;
                                {cartItemsLength > 0 && (
-                                    <span class="badge bg-secondary">{cartItemsLength}</span>
+                                    <span class="badge bg-danger">{cartItemsLength}</span>
                                 )}
                                 
                             </button>
