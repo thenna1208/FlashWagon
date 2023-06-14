@@ -3,6 +3,7 @@ import './SignUp.css'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Header from '../Header/Header'
+import { useNavigate } from 'react-router-dom';
 
 
 const SignupSchema = Yup.object().shape({
@@ -35,6 +36,7 @@ const SignupSchema = Yup.object().shape({
 
 })
 function SignUp() {
+    const navigate = useNavigate()
     const [initialFormValues, setInitialFormValues] = useState({
         firstname: '',
         lastname: '',
@@ -54,6 +56,7 @@ function SignUp() {
             password: "",
             cnfpassword: "",
         });
+        navigate('/login')
     }
     return (
         <div>
@@ -124,10 +127,11 @@ function SignUp() {
                                         </div>
 
                                         <button
+                                            
                                             type='submit'
                                             className="btn btn-dark float-start "
                                         >
-                                            Signup
+                                            Sign Up
                                         </button>
                                         <a
                                             href='/login'

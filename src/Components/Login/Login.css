@@ -18,3 +18,7 @@ span{
 img{
     margin-top: -70px;
 }
+
+.error{
+    color: red;
+}

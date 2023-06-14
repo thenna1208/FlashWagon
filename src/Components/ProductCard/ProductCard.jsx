@@ -2,12 +2,47 @@
 import React from 'react';
 import './ProductCard.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, addWishlistItem, removeItem, removeWishlistItem, toggleIsInCart, toggleIsInWishlist } from '../../Store/slices/cartSlices';
 
 function ProductCard({ item }) {
 
 
   const rate = Math.floor(item.rating.rate);
   const ratings = Array(rate).fill(0);
+  const dispatch = useDispatch();
+
+  const isInCart = useSelector((state) =>
+    state.cart.cartItems.some((items) => items.id === item.id)
+  );
+
+  const handleAddToCartClick = () => {
+    if (isInCart) {
+      dispatch(removeItem(item.id));
+      dispatch(toggleIsInCart());
+    } else {
+      dispatch(addItem({ item }));
+      dispatch(toggleIsInCart());
+    }
+  };
+
+  const isInWishlist = useSelector((state) =>
+    state.wishlist.wishlistItems.some((items) => items.id === item.id)
+  );
+
+  const handleAddToWishlistClick = () => {
+    if (isInWishlist) {
+      dispatch(removeWishlistItem(item.id));
+      dispatch(toggleIsInWishlist());
+    } else {
+      dispatch(addWishlistItem({ item }));
+      dispatch(toggleIsInWishlist());
+    }
+  };
+
+
+
+
 
   return (
     <div className="card">
@@ -41,10 +76,30 @@ function ProductCard({ item }) {
         </div>
         <hr />
         <div className="card-bottom">
+          <div>
+            <button onClick={handleAddToWishlistClick} className={isInWishlist ? 'btn wish btn-danger' : 'btn wish btn-info'}>
 
-          <button className='btn btn-info'>
-              Add to cart
-          </button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+              </svg>
+            </button>
+          </div>
+
+          <div>
+  <button
+    onClick={handleAddToCartClick}
+    className={isInCart ? "btn cart-btn btn-danger" : "btn cart-btn btn-info"}
+  >
+    {isInCart ? "Remove from cart" : "Add to cart"}
+  </button>
+
+  
+</div>
+
+
+
+
+
         </div>
       </div>
     </div>

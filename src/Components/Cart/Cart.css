@@ -35,3 +35,7 @@
   .details > div > span:last-child {
     text-align: right;
   }
+
+  .removewish .wish{
+            display: none;
+  }

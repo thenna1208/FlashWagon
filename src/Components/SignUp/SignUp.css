@@ -1,24 +1,31 @@
-.container{
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 80px;
-
-}
-
-.signupform{
+  }
+  
+  .signupform {
     margin-top: 60px;
-}
-
-img{
-    margin-left: -200px;
-}
-
-.error{
+    flex-basis: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-left: -100px;
+  }
+  
+  .error {
     display: flex;
     padding: 5px;
-}
-
-.btn-link{
+    color: red;
+  }
+  
+  .btn-link {
     text-decoration: none;
-    color:  coral;
+    color: coral;
     font-size: 20px;
     font-weight: bold;
-}
+  }

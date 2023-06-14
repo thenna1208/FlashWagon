@@ -1,63 +1,74 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux'
-// import Header from '../Header/Header'
-// import ProductCard from '../ProductCard/ProductCard'
-// import './Cart.css'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Header from '../Header/Header'
+import ProductCard from '../ProductCard/ProductCard'
+import './Cart.css'
+import { useNavigate } from 'react-router-dom'
 
-// function Cart() {
-//   const cartItems = useSelector((state) => state.cartItems)
-//   console.log(cartItems);
+function Cart() {
 
-//   const subtotal = Math.floor(cartItems.reduce((total, item) => total + item.price, 0))
-//   const Shipping = 25;
+  const navigate = useNavigate()
 
-//   return (
-//     <div>
-//       <Header />
+  const cartItems = useSelector((state) => state.cart.cartItems)
+  console.log(cartItems);
 
-//       <div className='body'>
+  const subtotal = Math.floor(cartItems.reduce((total, item) => total + item.price, 0))
+  const Shipping = 25;
 
-//         <div className='product-container '>
-//           {
-//             cartItems && cartItems.map((product) => (
-//               <ProductCard
-//                 key={product.id}
-//                 item={product}
-//               />
-//             ))
-//           }
-//         </div>
+  return (
+    <div>
+      <Header />
 
-//         <div className="card summary" >
+      <div className='body'>
+        <div className='removewish'>
+          <div className='product-container '>
+            {
+              cartItems && cartItems.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  item={product}
+                />
+              ))
+            }
+          </div>
+        </div>
 
-//           <h4>Order Summary</h4>
+        <div className='order-container'>
+          {cartItems.length > 0 ? (
+            <div className="card summary">
+              <h4>Order Summary</h4>
+              <hr />
+              <div className='details'>
+                <div>
+                  Quantity : <span>{cartItems.length}</span>
+                </div>
+                <div>
+                  Subtotal : <span>{subtotal}</span>
+                </div>
+                <div>
+                  Shipping Estimate : <span>{Shipping}</span>
+                </div>
+                <hr />
+                <div>
+                  Total : <span>{subtotal + Shipping}</span>
+                </div>
+                <hr />
+              </div>
+            </div>
+          ) : (
+            navigate('/')
+          )}
+        </div>
 
-//           <hr></hr>
-//           <div className='details' >
-//             <div>Quantity :  <span> {cartItems.length} </span></div>
-          
-//             <div>Subtotal : <span> {subtotal} </span></div>
-            
-//             <div>Shipping Estimate : <span> {Shipping} </span></div>
-//             <hr></hr>
-//             <div>Total : <span> {subtotal + Shipping} </span></div>
-//             <hr></hr>
-
-         
-//           </div>
-         
-         
-
-//         </div>
 
 
 
 
-//       </div>
+      </div>
 
 
-//     </div>
-//   )
-// }
+    </div>
+  )
+}
 
-// export default Cart
+export default Cart
